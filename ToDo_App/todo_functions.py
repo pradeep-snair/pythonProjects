@@ -49,10 +49,18 @@ def add_todos(to_do: str):
 
 def show_todos(filepath: str = FILEPATH):
     print("Todo List".center(80, "="))
+    all_to_dos = get_todos()
+    # with open(filepath, 'r') as file:
+    #     tasks = file.readlines()
+    for i, j in enumerate(all_to_dos):
+        print(f"{i + 1} - {j.strip()}")
+
+
+def get_todos(filepath: str = FILEPATH):
+    """ Function to get all current to-do's """
     with open(filepath, 'r') as file:
         tasks = file.readlines()
-    for i, j in enumerate(tasks):
-        print(f"{i + 1} - {j.strip()}")
+    return tasks
 
 
 def clear_screen():
