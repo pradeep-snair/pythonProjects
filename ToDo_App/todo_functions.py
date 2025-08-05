@@ -2,6 +2,17 @@ import os
 FILEPATH = './todos.txt'
 
 
+def complete_todo_gui(todo_completed: str):
+    with open(FILEPATH, 'r') as file_obj:
+        contents = file_obj.readlines()
+    contents.remove(todo_completed)
+    print(contents)
+    save_todos(contents)
+        #
+        #     print(f"Changing '{contents[todo_num - 1].strip()}' to '{new_todo.strip()}' ")
+        #     contents[todo_num - 1] = new_todo
+        #     save_todos(contents)
+        #     show_todos()
 def modify_todo(action: str):
     """Get the num of todo to process. makes sure entered todo number is
     in the list of existing todos
@@ -36,16 +47,20 @@ def save_todos(to_dos_lst: list, filepath=FILEPATH):
             file.write(to_do)
 
 
-def add_todos(to_do: str):
+def add_todos(to_do: str, cli_app: bool = False):
     """ Add the passed to_do in the file todos.txt"""
     if not to_do.strip():
         print("Looks like you entered an empty todo, Enter a valid string \n")
         return
+    all_todos = get_todos()
+    if to_do in all_todos:
+        return False
     with open(FILEPATH, 'a') as file:
         file.write(to_do)
-    print(f"Task {to_do.strip()} added  in Todo list")
-    show_todos()
-
+    if cli_app:
+        print(f"Task {to_do.strip()} added  in Todo list")
+        show_todos()
+    return True
 
 def show_todos(filepath: str = FILEPATH):
     print("Todo List".center(80, "="))
