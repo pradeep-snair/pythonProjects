@@ -3,7 +3,6 @@ import time
 import todo_functions
 
 all_todos = todo_functions.get_todos()
-print(all_todos)
 st.title("Prad's Basic To Do App")
 
 
@@ -21,16 +20,16 @@ def add_todo():
         # notification.success(f"✅ Todo '{new_todo}' Added!")  # Display success message
         # time.sleep(2)  # Keep message visible for 2 seconds
         # notification.empty()  # Clear the notification
+# Section to display the todos in webapp
 
 
 for todo in all_todos:
     state = st.checkbox(todo, key=todo)
     if state:
-        # st.write(f"To do '{todo}'  selected ")
         todo_functions.complete_todo_gui(todo)
+        st.write(f"To do '{todo}'  deleted ")
+        time.sleep(2)
         st.rerun()
-    # st.checkbox(todo, key=todo)
 
 st.text_input(label='Add Todo', label_visibility='hidden', placeholder="Enter your new todo",
               on_change=add_todo, key='new_todo')
-# st.session_state

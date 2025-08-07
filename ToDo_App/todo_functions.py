@@ -2,19 +2,19 @@ import os
 FILEPATH = './todos.txt'
 
 
-def complete_todo_gui(todo_completed: str):
+def complete_todo_gui(todo_completed: str) -> None:
+    """ Function to save new todos in web app. Print statement in
+    modify_todo written for cli app causes issues. Function is passed the
+    completed to_do which is deleted from the file storing todos"""
     with open(FILEPATH, 'r') as file_obj:
         contents = file_obj.readlines()
     contents.remove(todo_completed)
     print(contents)
     save_todos(contents)
-        #
-        #     print(f"Changing '{contents[todo_num - 1].strip()}' to '{new_todo.strip()}' ")
-        #     contents[todo_num - 1] = new_todo
-        #     save_todos(contents)
-        #     show_todos()
-def modify_todo(action: str):
-    """Get the num of todo to process. makes sure entered todo number is
+
+
+def modify_todo(action: str) -> None:
+    """Get the num of to_do to process. makes sure entered to_do number is
     in the list of existing todos
     """
     clear_screen()
@@ -39,16 +39,18 @@ def modify_todo(action: str):
             show_todos()
 
 
-def save_todos(to_dos_lst: list, filepath=FILEPATH):
+def save_todos(to_dos_lst: list, filepath=FILEPATH) -> None:
     """ Add the argument list of todos in the file todos.txt
-        Used when editing/ removing a completed to_do"""
+        Used when editing/ removing a completed to_do in cli mode"""
     with open(filepath, 'w') as file:
         for to_do in to_dos_lst:
             file.write(to_do)
 
 
-def add_todos(to_do: str, cli_app: bool = False):
-    """ Add the passed to_do in the file todos.txt"""
+def add_todos(to_do: str, cli_app: bool = False) -> bool:
+    """ Function to add to_do in the file todos.txt where all todos are
+    stored
+    """
     if not to_do.strip():
         print("Looks like you entered an empty todo, Enter a valid string \n")
         return
@@ -62,17 +64,17 @@ def add_todos(to_do: str, cli_app: bool = False):
         show_todos()
     return True
 
-def show_todos(filepath: str = FILEPATH):
+
+def show_todos(filepath: str = FILEPATH) -> None:
+    """ Function to print all todos for cli app"""
     print("Todo List".center(80, "="))
     all_to_dos = get_todos()
-    # with open(filepath, 'r') as file:
-    #     tasks = file.readlines()
     for i, j in enumerate(all_to_dos):
         print(f"{i + 1} - {j.strip()}")
 
 
-def get_todos(filepath: str = FILEPATH):
-    """ Function to get all current to-do's """
+def get_todos(filepath: str = FILEPATH) -> list[str]:
+    """ Function to return all current to-do's """
     with open(filepath, 'r') as file:
         tasks = file.readlines()
     return tasks
