@@ -2,4 +2,4 @@
 /workspace.xml
 *.xml
 /.venv
-/.idea
+../.idea*

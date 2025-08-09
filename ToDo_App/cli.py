@@ -12,7 +12,8 @@ while True:
         add_todos(user_action[4:] + '\n')
     elif user_action == 'add':
         to_do = input("Enter todo item to add: ") + "\n"
-        add_todos(to_do)
+        if check_valid_todo(to_do):
+            add_todos(to_do, cli_app=True)
     elif user_action == 'show':
         clear_screen()
         show_todos()
