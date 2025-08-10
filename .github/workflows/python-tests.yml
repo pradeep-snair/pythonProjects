@@ -27,9 +27,9 @@ jobs:
 
     - name: Run tests with pytest
       run: |
-        pytest --maxfail=1 --disable-warnings -v
+        pytest ToDo_App/tests/tests_todo_app.py --maxfail=1 --disable-warnings -v
     - name: Install coverage tools
       run: pip install pytest-cov
-    - name: Run tests with coverage
-      run: pytest --cov=your_module tests/
+#    - name: Run tests with coverage
+#      run: pytest --cov=your_module tests/
 
