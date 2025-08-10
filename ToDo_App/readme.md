@@ -15,3 +15,7 @@ Comments
        user_action = (input(user_input)).strip()
        EOFError: EOF when reading a line
     2. need to run using -it -> docker build -t cli_todo:latest . & 
+    3. pytest tests were showing red squiggly lines for the import statements in pycharm. This was
+    4. fixed by marking the directory as source root. 
+    5. todo -> add dockerignore file. 
+    6. 
