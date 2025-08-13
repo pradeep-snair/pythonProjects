@@ -1,0 +1,9 @@
+/shelf/
+/workspace.xml
+*.xml
+/.venv
+*idea*
+*__pycache__
+.coverage
+.DS_Store
+.pytest_cache
