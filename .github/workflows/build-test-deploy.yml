@@ -36,6 +36,8 @@ jobs:
     - name: Build Docker image
       run: |
         IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/todo-app:latest
+        IMAGE_TAG=${{ github.sha }}
+        docker build -t $IMAGE_NAME:$IMAGE_TAG .
         docker build -t $IMAGE_NAME .
         echo "Built image: $IMAGE_NAME"
 
@@ -43,6 +45,7 @@ jobs:
       run: |
         IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/todo-app:latest
         docker push $IMAGE_NAME
+        docker push $IMAGE_NAME:$IMAGE_TAG
 
 #- name: Install coverage tools
 #      run: pip install pytest-cov
