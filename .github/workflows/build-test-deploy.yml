@@ -44,8 +44,8 @@ jobs:
     - name: Push Docker image
       run: |
         IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/todo-app:latest
-        docker push $IMAGE_NAME
-        docker push $IMAGE_NAME:$IMAGE_TAG
+        docker push docker.io/$IMAGE_NAME
+        docker push docker.io/$IMAGE_NAME:$IMAGE_TAG
 
 #- name: Install coverage tools
 #      run: pip install pytest-cov
