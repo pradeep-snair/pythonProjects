@@ -35,10 +35,10 @@ jobs:
 
     - name: Build Docker image
       run: |
-        IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/todo-app:latest
+        IMAGE_NAME=${{ secrets.DOCKER_USERNAME }}/todo-app
         IMAGE_TAG=${{ github.sha }}
         docker build -t $IMAGE_NAME:$IMAGE_TAG .
-        docker build -t $IMAGE_NAME .
+        docker build -t $IMAGE_NAME:latest .
         echo "Built image: $IMAGE_NAME"
 
     - name: Push Docker image
