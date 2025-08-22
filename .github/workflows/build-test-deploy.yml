@@ -30,8 +30,9 @@ jobs:
       run: |
         pytest  --maxfail=1 --disable-warnings -v tests/
 
-  Docker image build and push:
+  build-and-push:
     name : 🚀 Build & Push Docker Image
+    needs: setup-env
     runs-on: ubuntu-latest
 
     steps:
