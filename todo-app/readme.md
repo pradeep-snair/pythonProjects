@@ -18,4 +18,7 @@ Comments
     3. pytest tests were showing red squiggly lines for the import statements in pycharm. This was
     4. fixed by marking the directory as source root. 
     5. todo -> add dockerignore file. 
-    6. 
+
+Docker Push error - tag name was wrong. 
+When changing the folder name I did not name it correctly and the github actions failed. 
+Pushing the image with the SHA tag to docker hub is failing. 
