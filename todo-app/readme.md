@@ -23,4 +23,6 @@ Docker Push error - tag name was wrong.
 When changing the folder name I did not name it correctly and the github actions failed. 
 Pushing the image with the SHA tag to docker hub is failing. 
 
-Split the Giuthub actions file into 3 jobs 
+Split the Giuthub actions file into 3 jobs
+checkout code was not done in docker build job which gave the error ->     - name: Checkout code
+      uses: actions/checkout@v3 
