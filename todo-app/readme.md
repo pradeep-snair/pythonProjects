@@ -26,3 +26,18 @@ Pushing the image with the SHA tag to docker hub is failing.
 Split the Giuthub actions file into 3 jobs
 checkout code was not done in docker build job which gave the error ->     - name: Checkout code
       uses: actions/checkout@v3 
+
+Kubernetes pod gives this error though docker container runs 
+fine File "/app/cli.py", line 10, in <module> user_action = (input(user_input)).strip()
+this error is fixed by adding the lines in 
+    image: pradsn/todo-app
+        stdin: true
+        tty: true
+        ports:
+
+kubectl exec -it todo-cli -- python cli.py
+
+initially created the cluster manually 
+then added the job to deploy the pods to cluster
+
+Need to add code to create the cluster automatically  
