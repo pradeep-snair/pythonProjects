@@ -11,5 +11,3 @@ nodeGroups:
     instanceType: t3.medium
     desiredCapacity: 2
     amiFamily: AmazonLinux2023
-    ssh:
-      allow: true

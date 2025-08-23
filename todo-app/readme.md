@@ -41,3 +41,8 @@ initially created the cluster manually
 then added the job to deploy the pods to cluster
 
 Need to add code to create the cluster automatically  
+
+Create cluster failed with the error - Error: cannot find EC2 key pair "~/.ssh/id_rsa.pub"
+eksctl is trying to associate an EC2 key pair with your EKS node group — 
+but it can't find the public key file at ~/.ssh/id_rsa.pub
+
