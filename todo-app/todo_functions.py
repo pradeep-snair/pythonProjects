@@ -1,6 +1,9 @@
 import os
+from pathlib import Path
 
-FILEPATH = './todos.txt'
+# Get absolute path to todos.txt relative to this script as pytest was failing
+BASE_DIR = Path(__file__).resolve().parent
+FILEPATH = BASE_DIR / "todos.txt"
 
 
 def complete_todo_gui(todo_completed: str, filepath=FILEPATH) -> None:
@@ -81,7 +84,7 @@ def get_todos(filepath: str = FILEPATH) -> list[str]:
 def show_todos(filepath: str = FILEPATH) -> None:
     """ Function to print all todos for cli app"""
     print("Todo List".center(80, "="))
-    all_to_dos = get_todos()
+    all_to_dos = get_todos(filepath)
     for i, j in enumerate(all_to_dos):
         print(f"{i + 1} - {j.strip()}")
 

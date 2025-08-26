@@ -83,11 +83,11 @@ def test_modify_todo_edit(tmp_path, monkeypatch, capsys):
     assert todos == ["Updated Task\n"]
 
 
-# # Optional: Test show_todos output
-# def test_show_todos_output(tmp_path, capsys):
-#     test_file = tmp_path / "test_todos.txt"
-#     save_todos(["Task A\n", "Task B\n"], filepath=str(test_file))
-#     show_todos(filepath=str(test_file))
-#     captured = capsys.readouterr()
-#     assert "Task A" in captured.out
-#     assert "Task B" in captured.out
+# Optional: Test show_todos output
+def test_show_todos_output(tmp_path, capsys):
+    test_file = tmp_path / "test_todos.txt"
+    save_todos(["Task A\n", "Task B\n"], filepath=str(test_file))
+    show_todos(filepath=str(test_file))
+    captured = capsys.readouterr()
+    assert "Task A" in captured.out
+    assert "Task B" in captured.out
